@@ -34,17 +34,19 @@ module.exports = (env) => {
         {
           test: /\.tsx?$/,
           exclude: /node_modules/,
-          loader: 'ts-loader',
-          options: {
-            transpileOnly: true,
-            experimentalWatchApi: true,
+          use: {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true,
+              experimentalWatchApi: true,
+            },
           },
         },
         {
           test: /\.js$/,
           use: ['source-map-loader'],
           enforce: 'pre',
-	  exclude: /node_modules/
+          exclude: /node_modules/,
         },
         {
           test: /\.module\.s(a|c)ss$/,
